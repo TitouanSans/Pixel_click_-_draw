@@ -14,13 +14,13 @@ const grille = {
     x:100
 };
 
-// Boucle de création des boutons qui formeront le cadrillage à cliquer
+// Boucle de création des div qui formeront le cadrillage à cliquer
 // Première Boucle h définissant le nombre de rangée du cadrillage
     for (let h = 0; h < grille.y; h++) {
         let range = 'H'+h;
         document.body.innerHTML+=`<div id='${range}'></div>`;
            
-        // Boucle i définissant le nombre X de boutons dans une rangée
+        // Boucle i définissant le nombre X de case dans une rangée
         for (let i = 0; i < grille.x; i++) {
             let bloc = (i+1) + (h*100);
 
@@ -28,7 +28,7 @@ const grille = {
         }
     }
 
-    // L'activation d'un bouton lui ajoute la classe "active", et lui retire si déjà possêdée
+    // L'appui d'une case remplace sa classe B1 par B2, et inversement.
     function Click(id) {
         console.log(id);
         const bloc = document.getElementById(id);
