@@ -9,17 +9,22 @@
 <body>
     
 <script>
+const grille = {
+    y:50,
+    x:50
+};
 
 // Boucle de création des boutons qui formeront le cadrillage à cliquer
 // Première Boucle h définissant le nombre de rangée du cadrillage
-    for (let h = 0; h < 20; h++) {
-        
+    for (let h = 0; h < grille.y; h++) {
+        let range = 'H'+h;
+        document.body.innerHTML+=`<div id='${range}'></div>`;
+           
         // Boucle i définissant le nombre X de boutons dans une rangée
-        for (let i = 0; i < 20; i++) {
+        for (let i = 0; i < grille.x; i++) {
             let bloc = (i+1) + (h*100);
-            console.log(bloc);
 
-            document.body.innerHTML+=`<button id='${'bloc'+bloc}' onclick="Click('${'bloc'+bloc}')"></button>`;
+            document.getElementById(range).innerHTML+=`<div id='${'bloc'+bloc}' onclick="Click('${'bloc'+bloc}')" class="B1"></div>`;
         }
         document.body.innerHTML+="<br>";
     }
@@ -29,10 +34,10 @@
         console.log(id);
         const bloc = document.getElementById(id);
 
-        if (bloc.classList.contains('active')) {
-            bloc.className = "";
+        if (bloc.classList.contains('B1')) {
+            bloc.className = "B2";
         } else {
-            bloc.className += "active";
+            bloc.className = "B1";
         }
     }
 

@@ -1,5 +1,6 @@
 body {
     margin: 1rem;
+    display: flex;
 }
 
 button {
@@ -11,7 +12,19 @@ button {
     padding: 0;
 }
 
-.active {
+.B1 {
+    height: 20px;
+    width: 20px;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    border: 2px solid black;
+}
+.B2 {
+    height: 20px;
+    width: 20px;
+    margin: 0;
+    padding: 0;
     background-color: black;
-    border-color: white;
+    border: 2px solid white;
 }
