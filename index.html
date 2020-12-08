@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
-    <div class="flex">
+    <!-- <div class="flex">
         <p>X</p>
         <button onclick="removeX()">-</button>
         <button onclick="addX()">+</button>
@@ -16,12 +16,14 @@
         <p>Y</p>
         <button onclick="removeY()">-</button>
         <button onclick="addY()">+</button>
-    </div>
+    </div> -->
+
+    <button onclick="LabWall()">CONTOUR</button>
 
 <script>
     const grille = {
-        y:10,
-        x:10
+        y:50,
+        x:50
     };
 
 // Boucle de création des div qui formeront le cadrillage à cliquer
@@ -50,21 +52,41 @@
         }
     }
 
+    function LabWall() {
+
+        for (let w = 0; w < grille.y; w++) {
+            let wallStartY = (100*w)+1;
+            document.getElementById('bloc'+wallStartY).className = "B2";
+
+            let wallEndY = (100*w)+grille.x;
+            document.getElementById('bloc'+wallEndY).className = "B2";
+        }
+        
+        for (let z = 0; z < grille.x; z++) {
+            let wallStartX = z+1;
+            document.getElementById('bloc'+wallStartX).className = "B2";
+
+            let wallEndX = (100*(grille.y)-100)+(z+1);
+            console.log(wallEndX);
+            document.getElementById('bloc'+wallEndX).className = "B2";
+        }
+    }
+
     // let nbPushAddY = 0;
     // let addY = 'add'+nbPushAddY;
     
-    function addY() {
+    // function addY() {
 
-        let plusY = 'HY'+1;
-        document.body.innerHTML+=`<div id='${plusY}' class="flex"></div>`;
+    //     let plusY = 'HY'+1;
+    //     document.body.innerHTML+=`<div id='${plusY}' class="flex"></div>`;
            
-        // Boucle i définissant le nombre X de case dans une rangée
-        for (let i = 0; i < grille.x; i++) {
-            let bloc = 'Y' + (i+1);
+    //     // Boucle i définissant le nombre X de case dans une rangée
+    //     for (let i = 0; i < grille.x; i++) {
+    //         let bloc = 'Y' + (i+1);
 
-            document.getElementById(plusY).innerHTML+=`<div id='${'blocY'+bloc}' onclick="Click('${'blocY'+bloc}')" class="B1"></div>`;
-        }
-    }
+    //         document.getElementById(plusY).innerHTML+=`<div id='${'blocY'+bloc}' onclick="Click('${'blocY'+bloc}')" class="B1"></div>`;
+    //     }
+    // }
 
 </script>
 </body>
