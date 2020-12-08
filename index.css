@@ -1,5 +1,5 @@
 body {
-    margin-top: 10rem;
+    margin: 1rem;
 }
 
 button {
@@ -13,4 +13,5 @@ button {
 
 .active {
     background-color: black;
+    border-color: white;
 }
