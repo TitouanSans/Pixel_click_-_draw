@@ -7,18 +7,28 @@
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
-    
+    <div class="flex">
+        <p>X</p>
+        <button onclick="removeX()">-</button>
+        <button onclick="addX()">+</button>
+    </div>
+    <div class="flex">
+        <p>Y</p>
+        <button onclick="removeY()">-</button>
+        <button onclick="addY()">+</button>
+    </div>
+
 <script>
-const grille = {
-    y:100,
-    x:100
-};
+    const grille = {
+        y:10,
+        x:10
+    };
 
 // Boucle de création des div qui formeront le cadrillage à cliquer
 // Première Boucle h définissant le nombre de rangée du cadrillage
     for (let h = 0; h < grille.y; h++) {
         let range = 'H'+h;
-        document.body.innerHTML+=`<div id='${range}'></div>`;
+        document.body.innerHTML+=`<div id='${range}' class="flex"></div>`;
            
         // Boucle i définissant le nombre X de case dans une rangée
         for (let i = 0; i < grille.x; i++) {
@@ -37,6 +47,22 @@ const grille = {
             bloc.className = "B2";
         } else {
             bloc.className = "B1";
+        }
+    }
+
+    // let nbPushAddY = 0;
+    // let addY = 'add'+nbPushAddY;
+    
+    function addY() {
+
+        let plusY = 'HY'+1;
+        document.body.innerHTML+=`<div id='${plusY}' class="flex"></div>`;
+           
+        // Boucle i définissant le nombre X de case dans une rangée
+        for (let i = 0; i < grille.x; i++) {
+            let bloc = 'Y' + (i+1);
+
+            document.getElementById(plusY).innerHTML+=`<div id='${'blocY'+bloc}' onclick="Click('${'blocY'+bloc}')" class="B1"></div>`;
         }
     }
 
