@@ -18,7 +18,7 @@
         <button onclick="addY()">+</button>
     </div> -->
 
-    <button onclick="LabWall()">CONTOUR</button>
+    <button onclick="LabWall()">CONTOUR-AUTO</button>
 
 <script>
     const grille = {
@@ -52,6 +52,7 @@
         }
     }
 
+    // Check toutes les cases au bord du cadrillage
     function LabWall() {
 
         for (let w = 0; w < grille.y; w++) {
