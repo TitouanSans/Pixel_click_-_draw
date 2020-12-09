@@ -18,19 +18,36 @@
         <button onclick="addY()">+</button>
     </div> -->
 
-    <button onclick="LabWall()">CONTOUR-AUTO</button>
+    <button class="btn-border" onclick="LabWall()">CONTOUR-AUTO</button>
+    <div class="BtnAreaX"></div>
+    <div class="BtnAreaY"></div>
+
+    <div id="btn-LX"></div>
+    <div class="flex">
+        <div id="scene"></div>
+        <div id="btn-LY" class="flex-column"></div>
+    </div>
 
 <script>
     const grille = {
-        y:50,
-        x:50
+        y:10,
+        x:10
     };
+
+// Création des boutons de coloration de ligne
+    for (let bx = 0; bx < grille.x; bx++) {
+        document.getElementById('btn-LX').innerHTML+=`<button id='${'btnX'+(bx+1)}' class='BLX' onclick="LineX(${bx+1})">${bx+1}</button>`;
+           
+    }
+    for (let by = 0; by < grille.y; by++) {
+        document.getElementById('btn-LY').innerHTML+=`<button id='${'btnY'+(by+1)}' class='BLY' onclick="LineY(${(by*grille.y)*10})">${by+1}</button>`;
+    }
 
 // Boucle de création des div qui formeront le cadrillage à cliquer
 // Première Boucle h définissant le nombre de rangée du cadrillage
     for (let h = 0; h < grille.y; h++) {
         let range = 'H'+h;
-        document.body.innerHTML+=`<div id='${range}' class="flex"></div>`;
+        document.getElementById('scene').innerHTML+=`<div id='${range}' class="flex"></div>`;
            
         // Boucle i définissant le nombre X de case dans une rangée
         for (let i = 0; i < grille.x; i++) {
@@ -70,6 +87,24 @@
             let wallEndX = (100*(grille.y)-100)+(z+1);
             console.log(wallEndX);
             document.getElementById('bloc'+wallEndX).className = "B2";
+        }
+    }
+
+    function LineX(id) {
+        for (let w = 0; w < grille.y; w++) {
+            let LX = (100*w)+id;
+            document.getElementById('bloc'+LX).className = "B2";
+
+        }
+    }
+
+    function LineY(id) {
+        console.log('ID n°'+id);
+        for (let z = 0; z < grille.x; z++) {
+            let LY = (z+1)+id;
+            console.log('LY: '+LY)
+            document.getElementById('bloc'+LY).className = "B2";
+
         }
     }
 
