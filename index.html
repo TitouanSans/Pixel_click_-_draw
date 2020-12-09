@@ -30,7 +30,7 @@
 
 <script>
     const grille = {
-        y:50,
+        y:100,
         x:50
     };
 
@@ -40,7 +40,7 @@
            
     }
     for (let by = 0; by < grille.y; by++) {
-        document.getElementById('btn-LY').innerHTML+=`<button id='${'btnY'+(by+1)}' class='BLY' onclick="LineY(${(by*grille.y)*10})">${by+1}</button>`;
+        document.getElementById('btn-LY').innerHTML+=`<button id='${'btnY'+(by+1)}' class='BLY' onclick="LineY(${by*grille.y})">${by+1}</button>`;
     }
 
 // Boucle de création des div qui formeront le cadrillage à cliquer
